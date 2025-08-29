@@ -21,3 +21,4 @@ console.log(personas2);
 //función pe FITRAR mayores de 22 años
 
 const mayores = [...personas, ...personas2].filter(persona => persona.nombre === 'Juan' || persona.aprendiendo === 'JavaScript');
+
