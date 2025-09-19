@@ -1,0 +1,33 @@
+TRABAJO PRÁCTICO - SpaceX Launches
+
+OBJETIVO:
+Transformar app de Rick and Morty en aplicación de lanzamientos de SpaceX.
+
+CAMBIOS PRINCIPALES:
+
+1. API: 
+   - URL cambiada a https://api.spacexdata.com/v5/launches
+   - Adaptación a nueva estructura de datos JSON
+
+2. COMPONENTES:
+   - Home: Muestra grilla de lanzamientos con imágenes y nombres
+   - Character: Convertido para mostrar detalles de lanzamientos SpaceX
+
+3. DATOS MOSTRADOS:
+   - Nombre de misión e imagen
+   - Número de vuelo y fecha de lanzamiento  
+   - Estado de éxito/fracaso
+   - Detalles de fallas (si las hubo)
+   - Descripción de la misión
+
+4. ROUTING:
+   - Adaptado para IDs alfanuméricos de SpaceX
+   - Navegación SPA funcional entre home y detalles
+
+5. ESTILOS:
+   - Grilla responsive con CSS Grid
+   - Placeholders para imágenes faltantes
+   - Diseño adaptado a contenido espacial
+
+TECNOLOGÍAS: VanillaJS, Webpack, API REST, CSS Grid
+*/
