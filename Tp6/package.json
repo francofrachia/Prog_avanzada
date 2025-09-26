@@ -1,0 +1,22 @@
+{
+  "name": "api-rest-full-nodejs",
+  "version": "1.0.0",
+  "description": "api rest full de users con PostgreSQL",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "author": "@erneledesma",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.11.3",
+    "sequelize": "^6.32.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
