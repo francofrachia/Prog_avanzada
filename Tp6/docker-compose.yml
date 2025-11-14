@@ -3,7 +3,7 @@ services:
     image: postgres:13
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: river151204
       POSTGRES_DB: usersdb
     ports:
       - "5433:5432"  

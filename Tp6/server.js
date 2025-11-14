@@ -11,8 +11,8 @@ app.use(express.json());
 testConnection();
 
 User.sync({ alter: true })
-  .then(() => console.log('✅ Modelos sincronizados con la base de datos'))
-  .catch(error => console.error('❌ Error sincronizando modelos:', error));
+  .then(() => console.log(' Modelos sincronizados con la base de datos'))
+  .catch(error => console.error(' Error sincronizando modelos:', error));
 
 
 app.get('/users', async (req, res) => {
@@ -75,4 +75,27 @@ app.delete('/users/:id', async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
+});
+
+
+app.put('/users/:id', async (req, res) => {
+    try {
+        const { name, email } = req.body;
+        const [updatedRows] = await User.update({ name, email }, {
+            where: { id: req.params.id }
+        });
+
+        if (updatedRows === 0) {
+            return res.status(404).json({ error: 'Usuario no encontrado o datos idénticos' });
+        }
+
+        const updatedUser = await User.findByPk(req.params.id);
+        res.status(200).json(updatedUser);
+
+    } catch (error) {
+        if (error.name === 'SequelizeUniqueConstraintError') {
+            return res.status(400).json({ error: 'El email ya está registrado por otro usuario' });
+        }
+        res.status(500).json({ error: 'Error al actualizar el usuario' });
+    }
 });
